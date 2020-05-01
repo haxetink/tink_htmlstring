@@ -1,0 +1,19 @@
+{
+  "name": "tink_htmlstring",
+  "license": "MIT",
+  "tags": [
+    "tink",
+    "cross",
+    "html",
+    "xss"
+  ],
+  "classPath": "src",
+  "contributors": [
+    "back2dos",
+    "kevinresol"
+  ],
+  "releasenote": "dev",
+  "version": "0.0.0",
+  "url": "https://github.com/haxetink/tink_htmlstring/",
+  "dependencies": {}
+}

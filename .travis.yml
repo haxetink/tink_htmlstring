@@ -1,0 +1,52 @@
+sudo: required
+dist: xenial
+
+stages:
+  - test
+  - deploy
+
+language: node_js
+node_js: 12
+
+cache:
+  directories:
+    - $HOME/haxe
+
+os:
+  - linux
+  # - osx
+
+env:
+  - HAXE_VERSION=stable
+  - HAXE_VERSION=nightly
+
+install:
+  - npm i -g lix
+  - lix install haxe $HAXE_VERSION
+  - lix download
+
+script:
+  - lix travix interp
+  - lix travix neko
+  - lix travix python
+  - lix travix node
+  - lix travix js
+  - lix travix flash
+  - lix travix java
+  - lix travix cpp
+  - lix travix cs
+  - lix travix php
+  - lix travix lua
+
+jobs:
+  include:
+    # - stage: test # should uncomment this when there is no matrix above (e.g. only one os, one env, etc)
+    - stage: deploy
+      os: linux
+      install:
+        - npm i -g lix
+        - lix download
+      script: skip
+      after_success:
+        - lix run travix install
+        - lix run travix release

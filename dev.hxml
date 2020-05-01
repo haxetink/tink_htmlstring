@@ -1,0 +1,4 @@
+tests.hxml
+-lib tink_htmlstring
+-lib travix
+--interp
