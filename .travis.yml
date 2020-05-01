@@ -17,6 +17,7 @@ os:
   # - osx
 
 env:
+  - HAXE_VERSION=3.4.7
   - HAXE_VERSION=stable
   - HAXE_VERSION=nightly
 
@@ -31,7 +32,7 @@ script:
   - lix travix python
   - lix travix node
   - lix travix js
-  - lix travix flash
+  # - lix travix flash
   - lix travix java
   - lix travix cpp
   - lix travix cs

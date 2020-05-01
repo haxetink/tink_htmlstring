@@ -40,7 +40,7 @@ class RunTests {
     asserts.assert(
       h('article', [
         h('h1', ['My first post <3']),
-        h('p', ['Enjoy the "content"'])
+        h('p', ['Enjoy the "content"']),
       ]) == '<article><h1>My first post &lt;3</h1><p>Enjoy the &quot;content&quot;</p></article>'
 
     );
@@ -52,8 +52,8 @@ class RunTests {
     buf.addRaw('<$tag');
 
     if (attr != null)
-      for (key => val in attr)
-        buf.addRaw(' $key="$val"'); // val is already escaped and we're assuming that key doesn't need escaping, because it comes from our code
+      for (key in attr.keys())
+        buf.addRaw(' $key="${attr[key]}"'); // value is already escaped and we're assuming that key doesn't need escaping, because it comes from our code
 
     buf.addRaw('>');
 
