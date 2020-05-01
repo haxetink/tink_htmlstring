@@ -51,8 +51,9 @@ class RunTests {
     var buf = new HtmlBuffer();
     buf.addRaw('<$tag');
 
-    for (key => val in attr)
-      buf.addRaw(' $key="$val"'); // val is already escaped and we're assuming that key doesn't need escaping, because it comes from our code
+    if (attr != null)
+      for (key => val in attr)
+        buf.addRaw(' $key="$val"'); // val is already escaped and we're assuming that key doesn't need escaping, because it comes from our code
 
     buf.addRaw('>');
 
