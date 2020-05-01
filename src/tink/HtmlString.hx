@@ -18,7 +18,7 @@ abstract HtmlString(String) to String {
     return new HtmlString(a.join(''));
 
   #if php
-  static function inline htmlEscape(s:String)
+  static inline function htmlEscape(s:String)
     return s.htmlEscape(true);
   #else
   static function htmlEscape(s:String) {
