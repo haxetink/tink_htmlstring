@@ -30,7 +30,7 @@ abstract HtmlString(String) to String {
 
     inline function flush(?entity:String)
       if (entity == null)
-        ret.addSub(s, start)
+        ret.addSub(s, start, max - start);//https://github.com/HaxeFoundation/haxe/issues/9382
       else {
         ret.addSub(s, start, pos - start - 1);
         start = pos;
